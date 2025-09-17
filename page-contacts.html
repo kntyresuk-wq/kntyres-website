@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Page contacts</title>
+  <title>KN TYRES - CONTACT</title>
   <meta content="Chernyh Mihail" name="author">
   <meta content="KN Tyres - Tyre & Auto Repair Services" name="description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,12 +108,12 @@
                   </div>
                   <div class="section-content">
                     <p>Your email address will not be published. Required fields are marked with *</p>
-                    <form action="#!">
+                    <form action="#!" id="appointmentForm">
                       <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
-                        <div><input class="uk-input uk-form-large" type="text" placeholder="Name *"></div>
-                        <div><input class="uk-input uk-form-large" type="text" placeholder="Email *"></div>
-                        <div class="uk-width-1-1"><input class="uk-input uk-form-large" type="text" placeholder="Subject"></div>
-                        <div class="uk-width-1-1"><textarea class="uk-textarea uk-form-large" placeholder="Your Message"></textarea></div>
+                        <div><input class="uk-input uk-form-large" type="text" placeholder="Name *" name="firstName" required></div>
+                        <div><input class="uk-input uk-form-large" type="email" placeholder="Email *" name="email" required></div>
+                        <div class="uk-width-1-1"><input class="uk-input uk-form-large" type="text" placeholder="Subject" name="subject" required></div>
+                        <div class="uk-width-1-1"><textarea class="uk-textarea uk-form-large" placeholder="Your Message" name="message" required></textarea></div>
                         <div><button class="uk-button uk-button-danger uk-button-large" type="submit">Send message</button></div>
                       </div>
                     </form>
@@ -303,6 +303,28 @@
   <script src="assets/js/uikit-icons.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/fontawesome.all.min.js"></script>
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+    
+        let firstName = document.querySelector("[name='firstName']").value;
+        let email = document.querySelector("[name='email']").value;
+        let subject = document.querySelector("[name='subject']").value;
+        let message = document.querySelector("[name='message']").value;
+    
+        let fullMessage = `*New Message*%0A
+            Name: ${firstName}%0A
+            Email: ${email}%0A
+            Subject: ${subject}%0A
+            Message: ${message}`;
+        
+            // Replace with your WhatsApp number (international format, no + sign)
+            let whatsappNumber = "441732914075"; 
+        
+            let url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+            window.open(url, "_blank");
+        });
+        </script>
 </body>
 
 </html>

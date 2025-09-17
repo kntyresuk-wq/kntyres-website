@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Home page 2</title>
+    <title>KN TYRES - HOME</title>
     <meta content="Chernyh Mihail" name="author">
     <meta content="KN Tyres - Tyre & Auto Repair Services" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -614,26 +614,28 @@
                             </div>
                             <div>
                                 <div class="section-title"> <span>Get a Free Quote From KN Tyres</span>
-                                    <h3 class="uk-h2">Request Appointment.</h3>
+                                    <h3 class="uk-h2">Service Inquiry.</h3>
                                 </div>
                                 <div class="section-content">
-                                    <form action="#!">
+                                    <form action="#!" id="appointmentForm">
                                         <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
                                             <div><input class="uk-input uk-form-large" type="text"
-                                                    placeholder="First Name"></div>
+                                                    placeholder="First Name" name="firstName" required></div>
                                             <div><input class="uk-input uk-form-large" type="text"
-                                                    placeholder="Last Name"></div>
-                                            <div><input class="uk-input uk-form-large" type="text" placeholder="Email">
+                                                    placeholder="Last Name" name="lastName" required></div>
+                                            <div><input class="uk-input uk-form-large" type="email" placeholder="Email" name="email" required >
                                             </div>
-                                            <div><input class="uk-input uk-form-large" type="text" placeholder="Phone">
+                                            <div><input class="uk-input uk-form-large" type="tel" placeholder="Phone" name="phone" required>
                                             </div>
-                                            <div class="uk-width-1-1"><select class="uk-select uk-form-large">
+                                            <div class="uk-width-1-1"><input class="uk-input uk-form-large" type="text" placeholder="Vehicle Make / Model" name="vehicle" required>
+                                            </div>
+                                            <!-- <div class="uk-width-1-1"><select class="uk-select uk-form-large">
                                                     <option value="Vehicle Make / Model">Vehicle Make / Model</option>
                                                     <option value="Vehicle Make / Model">Vehicle Make / Model</option>
                                                     <option value="Vehicle Make / Model">Vehicle Make / Model</option>
-                                                </select></div>
+                                                </select></div> -->
                                             <div class="uk-width-1-1"><textarea class="uk-textarea"
-                                                    placeholder="Message / Service Requested"></textarea></div>
+                                                    placeholder="Message / Service Requested" name="message" required></textarea></div>
                                             <div class="uk-width-1-1"><button
                                                     class="uk-button uk-button-danger uk-button-large" type="submit"
                                                     data-uk-icon="triangle-right">Send message</button></div>
@@ -794,7 +796,8 @@
                     <form class="uk-search uk-search-large"><input class="uk-search-input uk-text-center" type="search"
                             placeholder="Search..." autofocus></form>
                 </div>
-            </div><!-- End Дополнительные блоки-->
+            </div>
+            <!-- End Дополнительные блоки-->
         </footer>
     </div>
     <script src="assets/js/jquery.min.js"></script>
@@ -802,6 +805,31 @@
     <script src="assets/js/uikit-icons.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/fontawesome.all.min.js"></script>
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+        
+            let firstName = document.querySelector("[name='firstName']").value;
+            let lastName = document.querySelector("[name='lastName']").value;
+            let email = document.querySelector("[name='email']").value;
+            let phone = document.querySelector("[name='phone']").value;
+            let vehicle = document.querySelector("[name='vehicle']").value;
+            let message = document.querySelector("[name='message']").value;
+        
+            let fullMessage = `*New Service Inquiry*%0A
+        Name: ${firstName} ${lastName}%0A
+        Email: ${email}%0A
+        Phone: ${phone}%0A
+        Vehicle: ${vehicle}%0A
+        Message: ${message}`;
+        
+            // Replace with your WhatsApp number (international format, no + sign)
+            let whatsappNumber = "441732914075"; 
+        
+            let url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+            window.open(url, "_blank");
+        });
+        </script>
 </body>
 
 </html>

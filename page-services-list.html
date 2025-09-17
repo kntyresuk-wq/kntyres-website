@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Page services list</title>
+  <title>KN TYRES - SERVICES</title>
   <meta content="Chernyh Mihail" name="author">
   <meta content="KN Tyres - Tyre & Auto Repair Services" name="description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,124 @@
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/css/uikit.min.css">
   <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+    }
+    
+    .service-item-list {
+      transition: all 0.3s ease;
+    }
+    
+    .search-highlight {
+      background-color: #ffff00;
+      padding: 0 2px;
+      font-weight: bold;
+    }
+    
+    /* Custom styles for the page */
+    .section-first-screen__content {
+      background-size: cover;
+      background-position: center;
+      padding: 80px 0;
+      color: white;
+      position: relative;
+    }
+    
+    .section-first-screen__content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    
+    .section-first-screen__box {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .section-first-screen__title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .section-first-screen__search {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .section-first-screen__search-title {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    .service-item-list {
+      display: flex;
+      margin-bottom: 40px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .service-item-list__media {
+      flex: 0 0 40%;
+    }
+    
+    .service-item-list__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .service-item-list__desc {
+      flex: 0 0 60%;
+      padding: 20px;
+    }
+    
+    .service-item-list__head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .service-item-list__icon {
+      margin-right: 15px;
+    }
+    
+    .service-item-list__title .uk-h3 {
+      margin: 0;
+    }
+    
+    .list-checked {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .list-checked li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 8px;
+    }
+    
+    .list-checked li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #1e87f0;
+    }
+  </style>
 </head>
 
 <body class="page-services">
@@ -60,9 +178,13 @@
                 </div>
                 <div>
                   <div class="section-first-screen__search">
-                    <div class="section-first-screen__search-title">Quickly find a service ... </div>
-                    <form action="#!">
-                      <div class="uk-flex uk-flex-middle"><input class="uk-input uk-form-large" type="email" name="email" placeholder="Quickly find a service ..."><button class="uk-button uk-button-danger uk-button-large" type="submit" data-uk-icon="search"></button></div>
+                    <div class="section-first-screen__search-title">Find a service</div>
+                    <form id="service-search-form">
+                      <div class="uk-flex uk-flex-middle">
+                        <input class="uk-input uk-form-large" id="service-search-input" type="text" name="search" placeholder="Quickly find a service ...">
+                        <button id="search-btn" class="uk-button uk-button-danger uk-button-large" type="submit" data-uk-icon="search"></button>
+                        <button id="clear-btn" class="uk-button uk-button-danger uk-button-large" type="button" style="display:none;" data-uk-icon="close"></button>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -73,17 +195,21 @@
       </div>
       <div class="page-content">
         <div class="uk-section-large uk-container uk-container-large">
+          <div id="no-results" class="no-results">
+            <h3>No services found</h3>
+            <p>Try different keywords or browse all services</p>
+          </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Exhausts">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-2.jpg" alt="exhaust-service">
+                <img src="assets/img/services/man working on car exhaust.jpg" alt="exhaust-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -109,16 +235,16 @@
           </div>
           
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Brakes">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-3.jpg" alt="brake-service">
+                <img src="assets/img/services/car brakes.jpg" alt="brake-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -143,16 +269,16 @@
             </div>
           </div>
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Clutches">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-4.jpg" alt="clutch-service">
+                <img src="assets/img/services/car clutches.jpg" alt="clutch-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -177,16 +303,16 @@
             </div>
           </div>
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Batteries">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-5.jpg" alt="battery-service">
+                <img src="assets/img/services/car batteries.jpg"  alt="battery-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -211,16 +337,16 @@
             </div>
           </div>
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Suspension">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-6.jpg" alt="suspension-service">
+                <img src="assets/img/services/car suspension.jpg" alt="suspension-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -245,16 +371,16 @@
             </div>
           </div>
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Air Conditioning Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-7.jpg" alt="air-conditioning-service">
+                <img src="assets/img/services/air condition service in car.jpg" alt="air-conditioning-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -279,16 +405,16 @@
             </div>
           </div>
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Wheel Alignment">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-8.jpg" alt="wheel-alignment-service">
+                <img src="assets/img/services/car wheel alignment.jpg" alt="wheel-alignment-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -313,16 +439,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Car Repair">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-9.jpg" alt="car-repair-service">
+                <img src="assets/img/services/car repair.jpg" alt="car-repair-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -347,16 +473,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Fuel Saver Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-10.jpg" alt="fuel-saver-service">
+                <img src="assets/img/services/summer safety check car.jpg" alt="fuel-saver-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -366,7 +492,7 @@
                 </div>
               </div>
               <div class="service-item-list__body">
-                <p>Improve your car’s fuel efficiency and save money with our specialised fuel saver service designed to maximise mileage.</p>
+                <p>Improve your car's fuel efficiency and save money with our specialised fuel saver service designed to maximise mileage.</p>
                 <ul class="list-checked uk-column-1-2@s">
                   <li>Fuel system cleaning</li>
                   <li>Injector inspection & servicing</li>
@@ -382,16 +508,16 @@
           </div>
 
           
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Specialist Oil Supplement">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-11.jpg" alt="specialist-oil-supplement">
+                <img src="assets/img/services/car oil change.jpg" alt="specialist-oil-supplement">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -401,7 +527,7 @@
                 </div>
               </div>
               <div class="service-item-list__body">
-                <p>Enhance your engine’s performance and longevity with our specialist oil supplements, designed to reduce wear and improve efficiency.</p>
+                <p>Enhance your engine's performance and longevity with our specialist oil supplements, designed to reduce wear and improve efficiency.</p>
                 <ul class="list-checked uk-column-1-2@s">
                   <li>Engine wear protection</li>
                   <li>Friction reduction additives</li>
@@ -416,16 +542,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="AdBlue Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-12.jpg" alt="adblue-service">
+                <img src="assets/img/services/adblue car service.jpg" alt="adblue-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -450,16 +576,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Free Summer Safety Check">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-13.jpg" alt="free-summer-safety-check">
+                <img src="assets/img/services/summer safety check car.jpg" alt="free-summer-safety-check">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -484,16 +610,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Puncture Repair Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-14.jpg" alt="puncture-repair-service">
+                <img src="assets/img/services/puncture repair car.jpg" alt="puncture-repair-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -507,7 +633,7 @@
                 <ul class="list-checked uk-column-1-2@s">
                   <li>Tyre inspection for damage</li>
                   <li>Professional puncture repair</li>
-                  <li>Valve and bead checks</li>
+                  <li>Valre and bead checks</li>
                   <li>Tyre rebalancing</li>
                   <li>Safety compliance check</li>
                   <li>Pressure reset and adjustment</li>
@@ -518,26 +644,26 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Reminder Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-15.jpg" alt="reminder-service">
+                <img src="assets/img/services/man working on car exhaust.jpg" alt="reminder-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
                     <a href="page-services-article.html">Reminder Service</a>
                   </div>
-                  <p>Stay on top of your car’s maintenance with our free reminder service</p>
+                  <p>Stay on top of your car's maintenance with our free reminder service</p>
                 </div>
               </div>
               <div class="service-item-list__body">
-                <p>Never miss an important service again. We’ll remind you when it’s time for MOTs, oil changes, tyre checks, and more.</p>
+                <p>Never miss an important service again. We'll remind you when it's time for MOTs, oil changes, tyre checks, and more.</p>
                 <ul class="list-checked uk-column-1-2@s">
                   <li>Free service reminders</li>
                   <li>MOT due date alerts</li>
@@ -552,16 +678,16 @@
             </div>
           </div>
 
-          <div class="service-item-list">
+          <div class="service-item-list" data-service-name="Car Insurance Service">
             <div class="service-item-list__media">
               <a href="page-services-article.html">
-                <img src="assets/img/img-service-list-16.jpg" alt="car-insurance-service">
+                <img src="assets/img/services/puncture repair car.jpg" alt="car-insurance-service">
               </a>
             </div>
             <div class="service-item-list__desc">
               <div class="service-item-list__head">
                 <div class="service-item-list__icon">
-                  <img src="assets/img/ico-service-title.png" alt="service-icon">
+                  <img src="assets/img/home/ico-service-title.png" alt="service-icon">
                 </div>
                 <div class="service-item-list__title">
                   <div class="uk-h3">
@@ -571,7 +697,7 @@
                 </div>
               </div>
               <div class="service-item-list__body">
-                <p>Protect your vehicle and drive with confidence. We provide car insurance services to ensure you’re covered in every situation.</p>
+                <p>Protect your vehicle and drive with confidence. We provide car insurance services to ensure you're covered in every situation.</p>
                 <ul class="list-checked uk-column-1-2@s">
                   <li>Comprehensive car insurance</li>
                   <li>Third-party coverage</li>
@@ -737,6 +863,90 @@
   <script src="assets/js/uikit-icons.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/fontawesome.all.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('service-search-input');
+      const serviceItems = document.querySelectorAll('.service-item-list');
+      const noResults = document.getElementById('no-results');
+      const searchBtn = document.getElementById('search-btn');
+  const clearBtn = document.getElementById('clear-btn');
+
+
+  // Show clear button when typing
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value.length > 0) {
+      searchBtn.style.display = 'none';
+      clearBtn.style.display = 'inline-block';
+    } else {
+      searchBtn.style.display = 'inline-block';
+      clearBtn.style.display = 'none';
+    }
+  });
+
+  // Clear input when cross button clicked
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.focus();
+    clearBtn.style.display = 'none';
+    searchBtn.style.display = 'inline-block';
+  });
+      
+      // Add data attributes to all service items for search
+      serviceItems.forEach(item => {
+        const serviceName = item.querySelector('.uk-h3 a').textContent;
+        item.setAttribute('data-service-name', serviceName);
+        
+        // Also add searchable text from description and list items
+        const description = item.querySelector('.service-item-list__body p').textContent;
+        const listItems = Array.from(item.querySelectorAll('li')).map(li => li.textContent).join(' ');
+        item.setAttribute('data-search-text', (serviceName + ' ' + description + ' ' + listItems).toLowerCase());
+      });
+      
+      // Function to filter services
+      function filterServices(searchTerm) {
+        searchTerm = searchTerm.toLowerCase().trim();
+        let hasResults = false;
+        
+        serviceItems.forEach(item => {
+          const searchText = item.getAttribute('data-search-text');
+          const serviceName = item.getAttribute('data-service-name');
+          
+          if (searchText.includes(searchTerm) || serviceName.toLowerCase().includes(searchTerm)) {
+            item.style.display = 'flex';
+            hasResults = true;
+            
+            // Highlight matching text in service name
+            if (searchTerm && serviceName.toLowerCase().includes(searchTerm)) {
+              const titleElement = item.querySelector('.uk-h3 a');
+              const regex = new RegExp(`(${searchTerm})`, 'gi');
+              titleElement.innerHTML = serviceName.replace(regex, '<span class="search-highlight">$1</span>');
+            }
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (!hasResults && searchTerm) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+      
+      // Event listener for search input
+      searchInput.addEventListener('input', function() {
+        filterServices(this.value);
+      });
+      
+      // Prevent form submission
+      document.getElementById('service-search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        filterServices(searchInput.value);
+      });
+    });
+  </script>
 </body>
 
 </html>
