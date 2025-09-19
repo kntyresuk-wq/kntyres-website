@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>KN TYRES - BOOKING</title>
+  <meta content="Chernyh Mihail" name="author">
+  <meta content="KN Tyres - Book Your Tyre & Auto Service Appointment" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="format-detection" content="telephone=no">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/uikit.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* Booking Page Specific Styles */
+    .booking-form .uk-checkbox:checked {
+      background-color: #DFA900 !important;
+      border-color: #DFA900 !important;
+    }
+  </style>
+</head>
+
+<body class="page-booking">
+  <div class="page-wrapper">
+    <header class="page-header page-header--transparent">
+      <div class="page-header__bottom">
+        <div class="page-header__inner">
+          <div class="page-header__logo logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo-white.png" alt="logo"></a></div>
+          <div class="page-header__menu mainmenu">
+            <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
+              <ul class="uk-navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-about.html">About us</a></li>
+                <li><a href="page-tyres.html">Tyres</a></li>
+                <li><a href="page-services-list.html">Services</a></li>
+                <li class="uk-active"><a href="page-booking.html">Book</a></li>
+                <li><a href="page-contacts.html">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="page-header__btn-search"><a href="#modal-search" data-uk-search-icon data-uk-toggle></a></div>
+          <div class="page-header__callback block-with-icon"><a class="block-with-icon__link" href="tel:8109200664">
+              <div class="block-with-icon__icon"><img src="assets/img/ico-callback.svg" alt="ico-callback"></div>
+              <div class="block-with-icon__desc">
+                <div class="block-with-icon__label">Talk With Our Experts</div>
+                <div class="block-with-icon__value">(810) 920-0664</div>
+              </div>
+            </a></div>
+          <div class="page-header__btn-menu"><a href="#offcanvas" data-uk-toggle data-uk-icon="menu"></a></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <!-- Hero Section -->
+      <div class="section-first-screen">
+        <div class="section-first-screen__shape">
+          <div class="section-first-screen__content" style="background-image: url(assets/img/bg-page-services.jpg)">
+            <div class="uk-container">
+              <h1 class="section-first-screen__title">Booking</h1>
+              <div class="section-first-screen__breadcrumb">
+                <ul class="uk-breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><span>Booking</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="page-content">
+        <div class="uk-section-large uk-container">
+          <div class="contacts-block">
+            <div class="uk-grid uk-grid-collapse" data-uk-grid>
+              
+              <!-- Left Sidebar -->
+              <div class="uk-width-1-3@m">
+                <div class="sidebar">
+                  <div class="widjet widjet-contacts">
+                    <h4 class="widjet__title">Booking Information</h4>
+                    <ul class="contacts-list">
+                      <li class="contacts-list-item">
+                        <div class="contacts-list-item__icon"><img src="assets/img/ico-contact-2.svg" data-uk-svg alt="Phone"></div>
+                        <div class="contacts-list-item__desc">
+                          <div class="contacts-list-item__label">Call for Booking</div>
+                          <div class="contacts-list-item__content"><a href="tel:18107994660/5660">+44 1732 914075</a></div>
+                        </div>
+                      </li>
+                      <li class="contacts-list-item">
+                        <div class="contacts-list-item__icon"><img src="assets/img/ico-contact-3.svg" data-uk-svg alt="Hours"></div>
+                        <div class="contacts-list-item__desc">
+                          <div class="contacts-list-item__label">Operating Hours</div>
+                          <div class="contacts-list-item__content">Mon - Sat 8am to 6pm</div>
+                          <div class="contacts-list-item__content">Sun 10am to 4pm</div>
+                        </div>
+                      </li>
+                      <li class="contacts-list-item">
+                        <div class="contacts-list-item__icon"><img src="assets/img/ico-contact-1.svg" data-uk-svg alt="Location"></div>
+                        <div class="contacts-list-item__desc">
+                          <div class="contacts-list-item__label">Shop Address</div>
+                          <div class="contacts-list-item__content">Unit-2 Fircroft Way, Edenbridge TN8 6EL, United Kingdom</div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Main Booking Form -->
+              <div class="uk-width-2-3@m">
+                <div class="block-form">
+                  <div class="section-title">
+                    <div class="uk-h2">Book Your Service</div>
+                  </div>
+                  <div class="section-content">
+                    <p>Fill out the form below to schedule your appointment. Required fields are marked with *</p>
+                    <form action="#!" id="bookingForm">
+                      <!-- Services Selection -->
+                      <div class="uk-margin-bottom">
+                        <label class="uk-form-label uk-text-bold">Select Services *</label>
+                        <div class="uk-grid uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Car Service"> Car Service</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Tyres"> Tyres</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Wheel Alignment"> Wheel Alignment</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Puncture Repair"> Puncture Repair</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Brakes"> Brakes</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Clutches"> Clutches</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Exhausts"> Exhausts</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Batteries"> Batteries</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Suspension"> Suspension</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Air Conditioning"> Air Conditioning</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Fuel Saver Service"> Fuel Saver Service</label></div>
+                          <div><label><input class="uk-checkbox" type="checkbox" name="services" value="Safety Check"> Safety Check</label></div>
+                        </div>
+                      </div>
+
+                      <!-- Date and Time -->
+                      <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+                        <div><input class="uk-input uk-form-large" type="date" id="appointmentDate" name="appointmentDate" placeholder="Preferred Date *" required></div>
+                        <div>
+                          <select class="uk-select uk-form-large" id="appointmentTime" name="appointmentTime" required>
+                            <option value="">Preferred Time *</option>
+                            <option value="08:00">8:00 AM</option>
+                            <option value="08:30">8:30 AM</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="09:30">9:30 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="10:30">10:30 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="14:30">2:30 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="15:30">3:30 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="16:30">4:30 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- Customer Information -->
+                      <div class="uk-grid uk-grid-small uk-child-width-1-2@s" data-uk-grid>
+                        <div><input class="uk-input uk-form-large" type="text" id="customerName" name="customerName" placeholder="Full Name *" required></div>
+                        <div><input class="uk-input uk-form-large" type="tel" id="customerPhone" name="customerPhone" placeholder="Phone Number *" required></div>
+                        <div class="uk-width-1-1"><input class="uk-input uk-form-large" type="email" id="customerEmail" name="customerEmail" placeholder="Email Address *" required></div>
+                        <div class="uk-width-1-1"><textarea class="uk-textarea uk-form-large" id="customerMessage" name="customerMessage" placeholder="Additional Message (Optional)" rows="4"></textarea></div>
+                        <div><button class="uk-button uk-button-danger uk-button-large" type="submit">Book Appointment</button></div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="page-footer">
+      <div class="page-footer-top">
+        <div class="uk-container">
+            <div class="uk-grid uk-child-width-1-4@l uk-child-width-1-2@s" data-uk-grid>
+                <div class="uk-flex-first@l">
+                    <div class="logo">
+                        <a class="logo__link" href="/"><img class="logo__img"
+                            src="assets/img/logo-white.png" alt="KN Tyres Logo"></a>
+                    </div>
+                    <p>KN Tyres is your trusted local shop for premium tyres and complete car care services. From routine maintenance to major repairs, we keep you safe on the road.</p>
+                    <img src="assets/img/decor-line-right-accent.svg" alt="">
+                    <div class="block-with-icon">
+                        <a class="block-with-icon__link" href="tel:+441234567890">
+                            <div class="block-with-icon__icon">
+                                <img src="assets/img/ico-comment.svg" alt="ico-comment">
+                            </div>
+                            <div class="block-with-icon__desc">
+                                <div class="block-with-icon__label">Talk With Our Experts</div>
+                                <div class="block-with-icon__value">+44 1732 914075</div>
+                            </div>
+                        </a>
+                    </div>
+                    <ul class="social">
+                        <li class="social-item"><a class="social-item__link" href="https://www.facebook.com/p/Kn-Tyre-Auto-Service-100065001131294/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-tiktok"></i></a></li>
+                        <li class="social-item"><a class="social-item__link" href="https://www.instagram.com/kntyres/"><i class="fab fa-instagram"></i></a></li>
+                        <li class="social-item"><a class="social-item__link" href="https://wa.me/441732914075" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    </ul>
+                    
+                </div>
+    
+                <div class="uk-flex-last@l">
+                    <div class="uk-h5">Get in touch</div>
+                    <ul class="contacts-list">
+                        <li class="contacts-list-item">
+                            <div class="contacts-list-item__icon">
+                                <img src="assets/img/ico-phone24.svg" data-uk-svg alt="For Support">
+                            </div>
+                            <div class="contacts-list-item__desc">
+                                <div class="contacts-list-item__label">Call Us</div>
+                                <div class="contacts-list-item__content">
+                                    <a href="tel:+441234567890">+44 1732 914075</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="contacts-list-item">
+                            <div class="contacts-list-item__icon">
+                                <img src="assets/img/ico-timer.svg" data-uk-svg alt="Working Hours">
+                            </div>
+                            <div class="contacts-list-item__desc">
+                                <div class="contacts-list-item__label">Working Hours</div>
+                                <div class="contacts-list-item__content">Mon - Sat 8am to 6pm</div>
+                                <div class="contacts-list-item__content">Sun - 10am to 4pm</div>
+                            </div>
+                        </li>
+                        <li class="contacts-list-item">
+                            <div class="contacts-list-item__icon">
+                                <img src="assets/img/ico-mail.svg" data-uk-svg alt="Email Us">
+                            </div>
+                            <div class="contacts-list-item__desc">
+                                <div class="contacts-list-item__label">Email</div>
+                                <div class="contacts-list-item__content">
+                                    <a href="mailto:info@kntyres.com">info@kntyres.co.uk</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <div class="uk-h5">KN Tyres Services</div>
+                    <ul class="uk-nav uk-list-disc">
+                        <li><a href="page-services-list.html">Engine Repair</a></li>
+                        <li><a href="page-services-list.html">Brakes</a></li>
+                        <li><a href="page-services-list.html">Batteries</a></li>
+                        <li><a href="page-services-list.html">Suspension</a></li>
+                        <li><a href="page-services-list.html">Wheel Alignment</a></li>
+                        <li><a href="page-services-list.html">Air Conditioning Services</a></li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <div class="uk-h5">About Company</div>
+                    <ul class="uk-nav uk-list-disc">
+                        <li><a href="page-about.html">About KN Tyres</a></li>
+                        <li><a href="page-about.html">Why Choose Us</a></li>
+                        <li><a href="page-contacts.html">Our Service Areas</a></li>
+                        <li><a href="page-booking.html">Book an Appointment</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-footer-bottom">
+        <div class="uk-container">
+            <span>(c) 2025 <b>KN TYRES</b> - Tyres & Car Services. All rights reserved.</span>
+        </div>
+    </div>
+
+    <!-- Offcanvas Menu -->
+    <div id="offcanvas" data-uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-flex uk-flex-column uk-flex-between"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
+          <div>
+            <div class="logo"><a class="logo__link" href="index.html"><img class="logo__img" src="assets/img/logo-white.png" alt="logo"></a></div>
+            <div class="uk-margin">
+              <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page-about.html">About us</a></li>
+                <li><a href="page-tyres.html">Tyres</a></li>
+                <li><a href="page-services-list.html">Services</a></li>
+                <li class="uk-active"><a href="page-booking.html">Book</a></li>
+                <li><a href="page-contacts.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="uk-margin-top">
+            <hr class="uk-margin">
+            <ul class="social">
+              <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-twitter"></i></a></li>
+              <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+              <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-google-plus-g"></i></a></li>
+              <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-youtube"></i></a></li>
+              <li class="social-item"><a class="social-item__link" href="#!"><i class="fab fa-pinterest-p"></i></a></li>
+            </ul>
+            <hr class="uk-margin">
+            <div class="block-with-icon"><a class="block-with-icon__link" href="tel:8109200664">
+                <div class="block-with-icon__icon"><img src="assets/img/ico-callback.svg" alt="ico-callback"></div>
+                <div class="block-with-icon__desc">
+                  <div class="block-with-icon__label">Talk With Our Experts</div>
+                  <div class="block-with-icon__value">(810) 920-0664</div>
+                </div>
+              </a></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Search Modal -->
+      <div class="uk-modal-full uk-modal" id="modal-search" data-uk-modal>
+        <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" data-uk-height-viewport><button class="uk-modal-close-full" type="button" data-uk-close></button>
+          <form class="uk-search uk-search-large"><input class="uk-search-input uk-text-center" type="search" placeholder="Search..." autofocus></form>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/uikit.min.js"></script>
+  <script src="assets/js/uikit-icons.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/fontawesome.all.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set minimum date to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('appointmentDate').setAttribute('min', today);
+
+      // Time slots for different days
+      const weekdayTimes = [
+        {value: "08:00", text: "8:00 AM"},
+        {value: "08:30", text: "8:30 AM"},
+        {value: "09:00", text: "9:00 AM"},
+        {value: "09:30", text: "9:30 AM"},
+        {value: "10:00", text: "10:00 AM"},
+        {value: "10:30", text: "10:30 AM"},
+        {value: "11:00", text: "11:00 AM"},
+        {value: "11:30", text: "11:30 AM"},
+        {value: "12:00", text: "12:00 PM"},
+        {value: "12:30", text: "12:30 PM"},
+        {value: "13:00", text: "1:00 PM"},
+        {value: "13:30", text: "1:30 PM"},
+        {value: "14:00", text: "2:00 PM"},
+        {value: "14:30", text: "2:30 PM"},
+        {value: "15:00", text: "3:00 PM"},
+        {value: "15:30", text: "3:30 PM"},
+        {value: "16:00", text: "4:00 PM"},
+        {value: "16:30", text: "4:30 PM"},
+        {value: "17:00", text: "5:00 PM"},
+        {value: "17:30", text: "5:30 PM"},
+        {value: "18:00", text: "6:00 PM"}
+      ];
+
+      const sundayTimes = [
+        {value: "10:00", text: "10:00 AM"},
+        {value: "10:30", text: "10:30 AM"},
+        {value: "11:00", text: "11:00 AM"},
+        {value: "11:30", text: "11:30 AM"},
+        {value: "12:00", text: "12:00 PM"},
+        {value: "12:30", text: "12:30 PM"},
+        {value: "13:00", text: "1:00 PM"},
+        {value: "13:30", text: "1:30 PM"},
+        {value: "14:00", text: "2:00 PM"},
+        {value: "14:30", text: "2:30 PM"},
+        {value: "15:00", text: "3:00 PM"},
+        {value: "15:30", text: "3:30 PM"},
+        {value: "16:00", text: "4:00 PM"}
+      ];
+
+      function updateTimeSlots() {
+        const dateInput = document.getElementById('appointmentDate');
+        const timeSelect = document.getElementById('appointmentTime');
+        
+        if (dateInput.value) {
+          const selectedDate = new Date(dateInput.value);
+          const dayOfWeek = selectedDate.getDay(); // 0 = Sunday, 1 = Monday, etc.
+          
+          // Clear existing options except the first one
+          timeSelect.innerHTML = '<option value="">Preferred Time *</option>';
+          
+          // Choose time slots based on day
+          const times = (dayOfWeek === 0) ? sundayTimes : weekdayTimes;
+          
+          // Add time options
+          times.forEach(time => {
+            const option = document.createElement('option');
+            option.value = time.value;
+            option.textContent = time.text;
+            timeSelect.appendChild(option);
+          });
+          
+          // Reset time selection
+          timeSelect.value = "";
+        }
+      }
+
+      // Add event listener for date change
+      document.getElementById('appointmentDate').addEventListener('change', updateTimeSlots);
+
+      // Form submission
+      document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get selected services
+        const selectedServices = Array.from(document.querySelectorAll('input[name="services"]:checked'))
+          .map(checkbox => checkbox.value);
+        
+        // Get form data
+        const formData = {
+          services: selectedServices,
+          date: document.getElementById('appointmentDate').value,
+          time: document.getElementById('appointmentTime').value,
+          name: document.getElementById('customerName').value,
+          email: document.getElementById('customerEmail').value,
+          phone: document.getElementById('customerPhone').value,
+          message: document.getElementById('customerMessage').value
+        };
+
+        // Validate form
+        if (selectedServices.length === 0) {
+          alert('Please select at least one service.');
+          return;
+        }
+
+        if (!formData.date) {
+          alert('Please select a date.');
+          return;
+        }
+
+        if (!formData.time) {
+          alert('Please select a time.');
+          return;
+        }
+
+        if (!formData.name) {
+          alert('Please enter your name.');
+          return;
+        }
+
+        if (!formData.email) {
+          alert('Please enter your email address.');
+          return;
+        }
+
+        if (!formData.phone) {
+          alert('Please enter your phone number.');
+          return;
+        }
+
+        // Format message for WhatsApp
+        const selectedDate = new Date(formData.date);
+        const formattedDate = selectedDate.toLocaleDateString('en-GB', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+        
+        const fullMessage = `🏁 *KN TYRES - BOOKING REQUEST* 🏁%0A%0A
+📋 *Services Required:*%0A${selectedServices.join(', ')}%0A%0A
+📅 *Preferred Date:* ${formattedDate}%0A
+⏰ *Preferred Time:* ${formData.time}%0A%0A
+👤 *Customer Details:*%0A
+Name: ${formData.name}%0A
+Email: ${formData.email}%0A
+Phone: ${formData.phone}%0A%0A
+💬 *Additional Message:*%0A${formData.message || 'No additional message'}`;
+        
+        // Replace with your WhatsApp number (international format, no + sign)
+        let whatsappNumber = "441732914075"; 
+        
+        let url = `https://wa.me/${whatsappNumber}?text=${fullMessage}`;
+        window.open(url, "_blank");
+        
+        // Show confirmation message
+        alert('Opening WhatsApp to complete your booking request...');
+        
+        // Reset form
+        this.reset();
+      });
+    });
+  </script>
+</body>
+
+</html>
