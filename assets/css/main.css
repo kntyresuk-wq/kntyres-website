@@ -1923,6 +1923,17 @@ body {
   line-height: 1.6;
 }
 
+.about-block-image {
+  display: block;
+  position: relative;
+}
+
+.about-block-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 .about-block-video {
   display: block;
   position: relative;
@@ -5655,6 +5666,12 @@ body {
   .feature-item {
     padding: 0 0 20px 12px;
     border: 0;
+    border-bottom: 1px solid #d7e1e7;
+  }
+
+  .about-block-image img {
+    width: 100%;
+    border-radius: 6px;
   }
 
   .about-block-video:before {
